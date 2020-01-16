@@ -1,0 +1,140 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>New sliders</title>
+    <meta name="description" content="Learning Css & HTML5">
+    <meta name="author" content="Adebiyi Oluwafimihan">
+    <link type="text/css" rel="stylesheet" href="style/glide.core.min.css">
+    <link type="text/css" rel="stylesheet" href="style/homiez.css">
+    <link rel="stylesheet" href="style/glide.theme.min.css">
+
+
+</head>
+ <style>
+     #Groups{
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         width: 75%;
+         height: 20%;
+         background: #004A80;
+         border: 3px solid black;
+         margin: auto 10%;
+         margin-top: 10%;
+         color: white;
+         position: relative;
+
+
+     }
+
+     .groupbox{
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         border: 2px solid black;
+         background: green;
+         height: 180px;
+         width: calc(100% / 1);
+         margin: auto 20%;
+         border-radius: 30px;
+         /*margin-top: 30%;*/
+         /*margin-bottom: 30%;*/
+         /*margin-right: 10%;*/
+         /*margin-left: 10%;*/
+         /*float: right;*/
+         /*position: relative;*/
+         /*border-radius:30px;*/
+         /*z-index: 1;*/
+
+
+     }
+
+     .gn{
+         text-align: center;
+         margin: inherit;
+     }
+
+     .groupbox:hover {
+         border: 2px solid black;
+         background: #00ff00;
+         margin: auto 20%;
+
+         /*margin-right: 10%;*/
+         /*margin-left: 10%;*/
+         height: 180px;
+         width: calc(100% / 1);
+         cursor: pointer;
+         color: black;
+         border-radius: 30px;
+     }
+
+         .glide {
+             height: 100%;
+         }
+
+        .glide__arrow {
+            clear: both;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .glide__slide {
+        }
+
+ </style>
+<body>
+        <div id="Groups">
+                <div class="glide">
+                    <div class="glide__track" data-glide-el="track">
+                        <ul class="glide__slides">
+                            <li class="glide__slide"><div class="groupbox">
+                                <h1 class="gn">GBC</h1></div></li>
+                            <li class="glide__slide"><div class="groupbox">
+                                <h1 class="gn">FAM</h1></div></li>
+                            <li class="glide__slide"><div class="groupbox">
+                                <h1 class="gn">TEAM</h1></div></li>
+                            <li class="glide__slide"><div class="groupbox">
+                                <h1 class="gn">BBC</h1></div></li>
+                        </ul>
+                    </div>
+
+                    <div class="glide__arrows" data-glide-el="controls">
+                        <button class="glide__arrow glide__arrow--left" data-glide-dir="<">prev</button>
+                        <button class="glide__arrow glide__arrow--right" data-glide-dir=">">next</button>
+                    </div>
+                </div>
+
+            <script src="https://cdn.jsdelivr.net/npm/@glidejs/glide"></script>
+            <script>
+                // import Glide, { Autoplay } from '@glidejs/glide/dist/glide.modular.esm'
+
+                const config = {
+                    type : 'carousel',
+                    autoplay: 4000,
+                    perView: 3,
+                    focusAt: 'center',
+                    breakpoints: {
+                        800: {
+                            perView: 2
+                        },
+                        480: {
+                            perView: 1
+                        }
+                    }
+                };
+
+                new Glide('.glide', config).mount({});
+
+            </script>
+        </div>
+
+
+
+
+
+<!--<script src=https://my.gblearn.com/js/loadscript.js></script>-->
+</body>
+</html>

@@ -1,0 +1,152 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <meta name="description" content="Earth 3D Navigation">
+    <meta name="author" content="Adebiyi Malik">
+    <script src="script/jquery.min.js"></script>
+    <script type="text/javascript" src="script/script.js"></script>
+    <script src="http://www.webglearth.com/v2/api.js"></script>
+    <link type="text/css" rel="stylesheet" href="style/glide.core.min.css">
+    <link rel="stylesheet" href="style/glide.theme.min.css">
+    <link type="text/css" rel="stylesheet" href="style/homiez.css">
+
+
+    <style>        #map{top: 0; right: 0; bottom: 0; left: 0; background-image: url("img/uni.jpg");  width: 75%; height: 35%; border:1px;}
+    </style>
+</head>
+<body onload="init()">
+    <nav></nav>
+        <div id="map"></div>
+        <div id="map-2d" class="hidden"></div>
+        <button onclick="toggleViews()">Toggle</button>
+    
+    <div id="coords"></div>
+    <div id="buttons">
+        <input type="button" value="Zoom to level 2" onclick="setZoom(2);"><br>
+        <!--    <input type="button" value="What's current zoom level?" onclick="getZoomLevel();"><br>-->
+        <!--    <input type="button" value="Set position to Mount Everest" onclick="setPositionToEverest();"><br>-->
+<!--            <input type="button" value="What's current position?" onclick="getCurrentCenter();"><br>-->
+        <!--    <input type="button" value="Fly to Japan bounds" onclick="flyToJapan()"><br>-->
+        <!--    <input type="button" value="Fly to Iceland" onclick="panTo([65, -19]);"><br>-->
+        <input type="button" value="Explore" id="addmarkers" onclick="addSomeMarkers()"><br>
+        <input type="button" value="reset"  id="" onclick="setZoom(1)">
+    </div>
+<!--    <div id="layercontrol">-->
+<!--        Grand Canyon opacity:<br>-->
+<!--        0<input type="range" id="opacity2" min="0" max="1" step="0.01" value="0.7">1<br>-->
+<!--    </div>-->
+
+    <aside>
+    <img src="img/bill.jpg" alt="Profile Picture" width="100%" height=" 100%">
+    </aside>
+
+    <section id="details-container">
+        <div id="details">
+            <div class="Name">
+                <h>Username</h>
+            </div>
+            <div class="Name">
+                <h>Group Membership (4)</h>
+            </div>
+            <div class="Name">
+                <h>Bio</h>
+            </div>
+            <div class="Name">
+                <h>Archive</h>
+            </div>
+            <div class="Name">
+                <h>Activity Meter</h>
+            </div>
+        </div>
+        <textarea class="Name"  id="post" autofocus ></textarea>
+        <input type="button" value="Submit" name="Submit" class="btn"></a></input>
+    </section>
+
+    <div id="Groups">
+        <div class="glide">
+            <div class="glide__track" data-glide-el="track">
+                <ul class="glide__slides" id="slides_list">
+                    <li class="glide__slide"><div class="groupbox">
+                        <h1 class="gn">MICROSOFT</h1></div></li>
+                    <li class="glide__slide"><div class="groupbox">
+                        <h1 class="gn">WINDOWS</h1></div></li>
+                    <li class="glide__slide"><div class="groupbox">
+                        <h1 class="gn">CHARITY</h1></div></li>
+                </ul>
+            </div>
+
+            <div class="glide__arrows" data-glide-el="controls">
+                <button class="glide__arrow glide__arrow--left" data-glide-dir="<">prev</button>
+                <button class="glide__arrow glide__arrow--right" data-glide-dir=">">next</button>
+            </div>
+        </div>
+
+        <button onclick="showForm()">+</button>
+
+        <script src="https://cdn.jsdelivr.net/npm/@glidejs/glide"></script>
+        <script>
+        const config = {
+            type : 'carousel',
+            autoplay: 4000,
+            perView: 3,
+            breakPoints: {
+                800: {
+                    preView: 2
+                }
+            }
+
+        };
+        let glide = new Glide('.glide', config).mount();
+
+        function toggleGlide() {
+            if (glide.disabled)  {
+                glide.enable()
+            } else {
+                glide.disable()
+            }
+        }
+
+        function add_group(group_name) {
+            const list = document.getElementById("slides_list");
+            const group_li = document.createElement("li");
+            group_li.className = "glide__slide group-width"
+            group_li.innerHTML = `
+            <div class="groupbox">
+                <h1 class="gn">${group_name}</h1></div>
+            `
+            list.appendChild(group_li)
+            glide.update();
+            console.log(group_li)
+        }
+
+        function showForm(){
+            var group_name = prompt("Enter the group name");
+            add_group(group_name)
+
+
+
+        }
+        function toggleViews() {
+            map3D = document.getElementById("map")
+            map2D = document.getElementById("map-2d")
+
+            if (map3D.className === "hidden") {
+                map3D.classList.remove("hidden")
+                map2D.className = "hidden"
+            } else {
+                map2D.classList.remove("hidden")
+                map3D.className = "hidden"
+            }
+        }
+
+        </script>
+    </div>
+
+
+
+<!--<script src=https://my.gblearn.com/js/loadscript.js></script>-->
+</body>
+</html>
